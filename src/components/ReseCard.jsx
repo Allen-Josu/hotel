@@ -11,7 +11,7 @@ function ReseCard() {
                     <Card.Img
                         height={"350px"}
                         variant="top"
-                        src="https://www.recipetineats.com/wp-content/uploads/2022/08/Stack-of-cheeseburgers.jpg"
+                        src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Hamburger_%2812164386105%29.jpg"
                     />
                     <Card.Body>
                         <Card.Title className="text-center text-warning">

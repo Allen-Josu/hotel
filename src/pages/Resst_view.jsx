@@ -3,8 +3,14 @@ import { Row, Col } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
+import RestReview from "../components/RestReview";
 
 function Resst_view() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <>
             <Row className="d-flex justify-content-center mt-5 mb-5">
@@ -13,8 +19,9 @@ function Resst_view() {
                     <img
                         className="rounded-5"
                         height={"500px"}
-                        src="https://www.recipetineats.com/wp-content/uploads/2022/08/Stack-of-cheeseburgers.jpg"
-                        alt=""
+                        width={"100%"}
+                        src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Hamburger_%2812164386105%29.jpg"
+                        alt="no-image"
                     />
                 </Col>
                 <Col md={7} className="px-5">
@@ -39,27 +46,60 @@ function Resst_view() {
                         <ListGroup.Item>
                             <span className="fs-5">Address</span>
                         </ListGroup.Item>
-                        <ListGroup.Item className="text-center p-3">
-                            <button className="btn btn-warning">
+                        <ListGroup.Item className="text-center p-3 mb-2 ">
+                            <button
+                                className="btn btn-warning me-4"
+                                onClick={handleShow}
+                            >
                                 Operating Hours
                             </button>
-
-                            <Modal.Dialog>
+                            <Modal
+                                show={show}
+                                onHide={handleClose}
+                                backdrop="static"
+                                keyboard={false}
+                            >
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Modal title</Modal.Title>
+                                    <Modal.Title>Operating Hours</Modal.Title>
                                 </Modal.Header>
-
                                 <Modal.Body>
-                                    <p>Modal body text goes here.</p>
+                                    <ListGroup>
+                                        <ListGroup.Item>
+                                            <p>Monday : 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <p> Tuesday : 9:00am to 10:00pm </p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {" "}
+                                            <p> Wednsday : 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <p> Thursday: 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {" "}
+                                            <p>Friday: 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <p> Saturday: 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            {" "}
+                                            <p>Sunday: 9:00am to 10:00pm</p>
+                                        </ListGroup.Item>
+                                    </ListGroup>
                                 </Modal.Body>
-
                                 <Modal.Footer>
-                                    <Button variant="secondary">Close</Button>
-                                    <Button variant="primary">
-                                        Save changes
+                                    <Button
+                                        variant="secondary"
+                                        onClick={handleClose}
+                                    >
+                                        Close
                                     </Button>
                                 </Modal.Footer>
-                            </Modal.Dialog>
+                            </Modal>
+                            <RestReview />
                         </ListGroup.Item>
                     </ListGroup>
                     <hr />
