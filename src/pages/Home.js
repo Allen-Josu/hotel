@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import ReseCard from "../components/ReseCard";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchRestaurant } from "../redux/restaurantSlice";
 
 function Home() {
+
+    const allRestaurant = useSelector((state)=>state.restaurantSlice.allRestaurant)
+    console.log(allRestaurant);
+    const dispatch = useDispatch();
+    useEffect(
+        () => {dispatch(fetchRestaurant())}
+        ,[])
+
     return (
         <>
             <Row>
